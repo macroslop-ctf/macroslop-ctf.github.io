@@ -1,0 +1,60 @@
+# Macroslop CTF - The Macroslop Conspiracy Challenge
+
+name: "The Macroslop Conspiracy"
+author: "Macroslop Team"
+category: misc
+description: Legend says this challenge contains the ultimate secret of the Macroslop CTF. No one has ever solved it. Will you be the first?
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 9999
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 100
+logic: any
+
+flags:
+  - { type: "hidden", data: "case_insensitive" }
+
+topics:
+  - meta
+  - secret
+  - conspiracy
+  - everything
+
+tags:
+  - misc
+  - secret
+  - legendary
+  - impossible
+
+files: []
+
+hints:
+  - { content: "The answer lies within the code itself", cost: 100 }
+  - { content: "Sometimes the simplest solution is the right one", cost: 500 }
+  - { content: "Have you tried looking at the HTML source?", cost: 1000 }
+
+requirements:
+  prerequisites:
+    - "Secret Macro"
+    - "SQL Injection Spaghetti"
+    - "Caesar's Lost Shift"
+    - "Memory Dump Mystery"
+    - "XLSX Extravaganza"
+    - "Quantum Encryption"
+    - "XSS Paradise"
+    - "PNG Steganography"
+    - "Buffer Overflow Bonanza"
+    - "API Authentication Bypass"
+  anonymize: true
+
+next: null
+
+state: hidden
+version: "0.1"

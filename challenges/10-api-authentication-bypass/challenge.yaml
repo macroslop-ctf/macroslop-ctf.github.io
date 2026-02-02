@@ -1,0 +1,52 @@
+# Macroslop CTF - API Authentication Bypass Challenge
+
+name: "API Authentication Bypass"
+author: "Macroslop Team"
+category: web
+description: This API has weak authentication. Can you bypass it?
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 175
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: http://api.ctf:3000
+healthcheck: null
+
+attempts: 8
+logic: any
+
+flags:
+  - { type: "regex", content: "FLAG\\{[a-z0-9_]+\\}", data: "case_insensitive" }
+
+topics:
+  - web security
+  - api security
+  - authentication bypass
+  - jwt attacks
+
+tags:
+  - web
+  - api
+  - authentication
+  - advanced
+
+files:
+  - api_docs.pdf
+
+hints:
+  - "JWT tokens can be forged if not properly validated"
+  - content: "Check if the API validates tokens correctly"
+    cost: 20
+  - content: "Try using an empty secret or 'null' algorithm"
+    cost: 25
+
+requirements:
+  - "XSS Paradise"
+
+next: null
+
+state: visible
+version: "0.1"

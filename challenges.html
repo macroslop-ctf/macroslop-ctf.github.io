@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges - Macroslop CTF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #00ff00;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            border-bottom: 3px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav a.active {
+            border: 2px solid #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px #00ff00;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .challenge-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+            border-color: #00ccff;
+        }
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .challenge-title {
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+            flex: 1;
+        }
+
+        .challenge-points {
+            background: #00ff00;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .challenge-category {
+            display: inline-block;
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .challenge-description {
+            font-size: 14px;
+            color: #00cc00;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .challenge-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #00ff00;
+            padding-top: 12px;
+        }
+
+        .challenge-difficulty {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .difficulty-easy {
+            color: #00ff00;
+        }
+
+        .difficulty-medium {
+            color: #ffff00;
+        }
+
+        .difficulty-hard {
+            color: #ff6600;
+        }
+
+        .solves {
+            font-size: 12px;
+            color: #00cc00;
+        }
+
+        .solve-btn {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+        }
+
+        .solve-btn:hover {
+            background: #00cc00;
+            transform: scale(1.05);
+        }
+
+        .solve-btn.solved {
+            background: #00aa00;
+            cursor: default;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #00ff00;
+            margin-top: 60px;
+            color: #00cc00;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .modal-content {
+            background: rgba(0, 0, 0, 0.95);
+            margin: auto;
+            padding: 30px;
+            border: 3px solid #00ff00;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translate(-50%, -60%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #00ff00;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close:hover {
+            text-shadow: 0 0 10px #00ff00;
+            transform: scale(1.2);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ff00;
+            clear: both;
+        }
+
+        .modal-points {
+            background: #00ff00;
+            color: #000;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .modal-info {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .modal-info p {
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            color: #00ccff;
+            font-weight: bold;
+        }
+
+        .flag-input-group {
+            margin-top: 20px;
+            border-top: 1px solid #00ff00;
+            padding-top: 15px;
+        }
+
+        .flag-input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .flag-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .flag-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            background: rgba(0, 255, 0, 0.2);
+        }
+
+        .submit-flag-btn {
+            width: 100%;
+            margin-top: 10px;
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .submit-flag-btn:hover {
+            background: #00cc00;
+            transform: scale(1.02);
+        }
+
+        .flag-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            display: none;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .flag-message.success {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00ff00;
+            color: #00ff00;
+        }
+
+        .flag-message.error {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='../'">⚙️ Macroslop CTF ⚙️</div>
+        <nav>
+            <a href="../">Home</a>
+            <a href="challenges" class="active">Challenges</a>
+            <a href="profile">Profile</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">⚔️ CHALLENGES ⚔️</h1>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterChallenges('all')">ALL</button>
+            <button class="filter-btn" onclick="filterChallenges('web')">WEB</button>
+            <button class="filter-btn" onclick="filterChallenges('crypto')">CRYPTO</button>
+            <button class="filter-btn" onclick="filterChallenges('forensics')">FORENSICS</button>
+            <button class="filter-btn" onclick="filterChallenges('misc')">MISC</button>
+            <button class="filter-btn" onclick="filterChallenges('superhard')">🔥 SUPER HARD 🔥</button>
+        </div>
+
+        <div class="challenges-grid" id="challengesGrid">
+            <!-- Challenges will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <div id="challengeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-points" id="modalPoints"></div>
+            <div class="modal-info">
+                <p><span class="info-label">Category:</span> <span id="modalCategory"></span></p>
+                <p><span class="info-label">Difficulty:</span> <span id="modalDifficulty"></span></p>
+                <p><span class="info-label">Points:</span> <span id="modalPointsValue"></span></p>
+                <p><span class="info-label">Solves:</span> <span id="modalSolves"></span></p>
+                <p><span class="info-label">Description:</span></p>
+                <p id="modalDescription"></p>
+            </div>
+            <div class="flag-input-group">
+                <label for="flagInput">Flag:</label>
+                <input type="text" id="flagInput" class="flag-input" placeholder="FLAG{...}">
+                <button class="submit-flag-btn" onclick="submitFlag()">SUBMIT FLAG</button>
+                <div class="flag-message" id="flagMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Macroslop CTF | Enjoy the chaos | Stay legal</p>
+    </footer>
+
+    <script>
+        const challenges = [
+            {
+                id: 1,
+                title: "Secret Macro",
+                category: "misc",
+                difficulty: "easy",
+                points: 50,
+                description: "Find the hidden flag in this harmless macro. Maybe look at the comments?",
+                solves: 42
+            },
+            {
+                id: 2,
+                title: "SQL Injection Spaghetti",
+                category: "web",
+                difficulty: "easy",
+                points: 75,
+                description: "This login form is a mess. Can you bypass it?",
+                solves: 38
+            },
+            {
+                id: 3,
+                title: "Caesar's Lost Shift",
+                category: "crypto",
+                difficulty: "easy",
+                points: 100,
+                description: "ROT13 is too easy. Try finding the original Caesar cipher shift.",
+                solves: 25
+            },
+            {
+                id: 4,
+                title: "Memory Dump Mystery",
+                category: "forensics",
+                difficulty: "medium",
+                points: 150,
+                description: "Extract the flag from this suspicious memory dump file.",
+                solves: 12
+            },
+            {
+                id: 5,
+                title: "XLSX Extravaganza",
+                category: "misc",
+                difficulty: "medium",
+                points: 125,
+                description: "This Excel file is hiding something. Unzip it and find the secret.",
+                solves: 8
+            },
+            {
+                id: 6,
+                title: "Quantum Encryption",
+                category: "crypto",
+                difficulty: "hard",
+                points: 250,
+                description: "Can you break this 'unbreakable' encryption? (It's not really quantum)",
+                solves: 3
+            },
+            {
+                id: 7,
+                title: "XSS Paradise",
+                category: "web",
+                difficulty: "medium",
+                points: 100,
+                description: "Craft an XSS payload to steal the admin's cookie.",
+                solves: 15
+            },
+            {
+                id: 8,
+                title: "PNG Steganography",
+                category: "forensics",
+                difficulty: "medium",
+                points: 175,
+                description: "The flag is hidden inside this innocent-looking image.",
+                solves: 6
+            },
+            {
+                id: 9,
+                title: "Buffer Overflow Bonanza",
+                category: "misc",
+                difficulty: "hard",
+                points: 200,
+                description: "Classic buffer overflow. Overflow the buffer and get shell access.",
+                solves: 2
+            },
+            {
+                id: 10,
+                title: "API Authentication Bypass",
+                category: "web",
+                difficulty: "hard",
+                points: 175,
+                description: "This API has weak authentication. Can you bypass it?",
+                solves: 5
+            },
+            {
+                id: 11,
+                title: "The Macroslop Conspiracy",
+                category: "superhard",
+                difficulty: "super",
+                points: 9999,
+                description: "Legend says this challenge contains the ultimate secret of the Macroslop CTF. No one has ever solved it. Will you be the first?",
+                solves: 0,
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentChallenge = null;
+
+        function filterChallenges(category) {
+            currentFilter = category;
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderChallenges();
+        }
+
+        function renderChallenges() {
+            const grid = document.getElementById('challengesGrid');
+            grid.innerHTML = '';
+
+            const filtered = currentFilter === 'all' 
+                ? challenges 
+                : challenges.filter(c => c.category === currentFilter);
+
+            filtered.forEach(challenge => {
+                const card = document.createElement('div');
+                card.className = 'challenge-card';
+                const buttonText = challenge.category === 'superhard' ? 'OPEN' : 'SOLVE';
+                card.innerHTML = `
+                    <div class="challenge-header">
+                        <div class="challenge-title">${challenge.title}</div>
+                        <div class="challenge-points">${challenge.points}pts</div>
+                    </div>
+                    <div class="challenge-category">${challenge.category}</div>
+                    <div class="challenge-description">${challenge.description}</div>
+                    <div class="challenge-footer">
+                        <span class="challenge-difficulty difficulty-${challenge.difficulty}">
+                            ${challenge.difficulty.toUpperCase()}
+                        </span>
+                        <span class="solves">${challenge.solves} solves</span>
+                        <button class="solve-btn" onclick="openChallenge(${challenge.id})">${buttonText}</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openChallenge(challengeId) {
+            currentChallenge = challenges.find(c => c.id === challengeId);
+            if (!currentChallenge) return;
+
+            document.getElementById('modalTitle').textContent = currentChallenge.title;
+            document.getElementById('modalPoints').textContent = currentChallenge.points + ' pts';
+            document.getElementById('modalCategory').textContent = currentChallenge.category.toUpperCase();
+            document.getElementById('modalDifficulty').textContent = currentChallenge.difficulty.toUpperCase();
+            document.getElementById('modalPointsValue').textContent = currentChallenge.points;
+            document.getElementById('modalSolves').textContent = currentChallenge.solves;
+            document.getElementById('modalDescription').textContent = currentChallenge.description;
+            document.getElementById('flagInput').value = '';
+            document.getElementById('flagMessage').style.display = 'none';
+            
+            document.getElementById('challengeModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('challengeModal').style.display = 'none';
+            currentChallenge = null;
+        }
+
+        function submitFlag() {
+            if (!currentChallenge) return;
+
+            const flagInput = document.getElementById('flagInput').value.trim();
+            const messageDiv = document.getElementById('flagMessage');
+
+            if (currentChallenge.flagAnswer) {
+                if (flagInput.toLowerCase() === get_hidden_flag()) {
+                    messageDiv.textContent = '✓ Correct! Flag accepted!';
+                    messageDiv.className = 'flag-message success';
+                    messageDiv.style.display = 'block';
+                } else {
+                    messageDiv.textContent = '✗ Incorrect flag. Try again!';
+                    messageDiv.className = 'flag-message error';
+                    messageDiv.style.display = 'block';
+                }
+            } else {
+                messageDiv.textContent = 'Sorry, flag submission not implemented for this challenge!';
+                messageDiv.className = 'flag-message error';
+                messageDiv.style.display = 'block';
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('challengeModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Initial render
+        renderChallenges();
+    </script>
+</body>
+</html>

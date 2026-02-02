@@ -1,0 +1,57 @@
+# Macroslop CTF - Buffer Overflow Bonanza Challenge
+
+name: "Buffer Overflow Bonanza"
+author: "Macroslop Team"
+category: misc
+description: Classic buffer overflow. Overflow the buffer and get shell access.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 200
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: nc bof-server.ctf 9001
+healthcheck: null
+
+attempts: 10
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{buff3r_0v3rflow_rop}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - buffer overflow
+  - binary exploitation
+  - rop gadgets
+  - return-oriented programming
+
+tags:
+  - misc
+  - binary
+  - pwn
+  - advanced
+
+files:
+  - vulnerable_binary
+  - libc.so.6
+
+hints:
+  - "Disable ASLR for local testing"
+  - content: "You'll need to craft ROP chains"
+    cost: 30
+  - content: "GDB is your friend"
+    cost: 25
+
+requirements:
+  - "XLSX Extravaganza"
+
+next: null
+
+state: visible
+version: "0.1"

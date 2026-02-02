@@ -1,0 +1,49 @@
+# Macroslop CTF - Caesar's Lost Shift Challenge
+
+name: "Caesar's Lost Shift"
+author: "Macroslop Team"
+category: crypto
+description: ROT13 is too easy. Try finding the original Caesar cipher shift.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 100
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{c43s4r_1s_n0t_s3cur3}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - cryptography
+  - classical cipher
+  - frequency analysis
+
+tags:
+  - crypto
+  - beginner
+  - cipher
+
+files: []
+
+hints:
+  - "Try all 26 possible shifts"
+  - content: "The most common letter in English is 'E'"
+    cost: 5
+
+requirements: []
+next: null
+
+state: visible
+version: "0.1"

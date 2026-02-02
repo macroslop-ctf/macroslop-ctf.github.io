@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macroslop CTF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #00ff00;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            border-bottom: 3px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            border: 2px solid #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ff00;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #00cc00;
+            margin-bottom: 20px;
+        }
+
+        .rules-container {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .rules-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff00;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            padding: 10px 0;
+            font-size: 16px;
+            border-left: 3px solid #00ff00;
+            padding-left: 15px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .rules-list li:hover {
+            transform: translateX(10px);
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .fancy-text {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px dashed #00ff00;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .fancy-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #00ff00;
+            color: #000;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #00cc00;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.3s infinite;
+            color: #ff00ff;
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.3s infinite;
+            color: #00ffff;
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0% { clip-path: rect(0, 900px, 0, 0); }
+            100% { clip-path: rect(0, 0, 900px, 0); }
+        }
+
+        @keyframes glitch-2 {
+            0% { clip-path: rect(0, 0, 900px, 900px); }
+            100% { clip-path: rect(0, 900px, 0, 900px); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #00ff00;
+            margin-top: 60px;
+            color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">⚙️ Macroslop CTF ⚙️</div>
+        <nav>
+            <a href="challenges">Challenges</a>
+            <a href="profile">Profile</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>WELCOME TO MACROSLOP CTF</h1>
+            <p>Where cybersecurity meets absolute chaos</p>
+            <div class="glitch" data-text=">> SYSTEM INITIALIZED">
+                >> SYSTEM INITIALIZED
+            </div>
+        </div>
+
+        <div class="rules-container">
+            <h2>RULES & GUIDELINES</h2>
+            <ul class="rules-list">
+                <li>🚫 No attacking the infrastructure (we're fragile)</li>
+                <li>🧠 Use your brain, not AI (okay maybe a little AI)</li>
+                <li>🤐 Don't share flags in public chat (seriously, don't)</li>
+                <li>⏰ Respect the time limits, cheaters will be laughed at</li>
+                <li>📝 Write-ups are encouraged (flex your knowledge)</li>
+                <li>🔧 Report bugs to admins (we probably already know)</li>
+                <li>😤 No rage quitting (okay fine, a little rage quitting)</li>
+                <li>🎮 Have fun or get out (just kidding, stay)</li>
+            </ul>
+        </div>
+
+        <div class="fancy-text">
+            <p>
+                ✨ Welcome to the digital battleground where macros collide and CTF dreams come true ✨
+            </p>
+            <p>
+                Dust off your hacking skills, sharpen your tools, and prepare yourself for challenges
+                that will make you question your life choices. But hey, at least the prizes are... something.
+            </p>
+            <p style="font-size: 14px; color: #00cc00;">
+                "I didn't choose the CTF life, the CTF life chose me." — Probably you soon
+            </p>
+            <a href="challenges" class="cta-button">START HACKING</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Macroslop CTF | Enjoy the chaos | Stay legal</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Macroslop CTF - XSS Paradise Challenge
+
+name: "XSS Paradise"
+author: "Macroslop Team"
+category: web
+description: Craft an XSS payload to steal the admin's cookie.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 100
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: http://xss-paradise.ctf:8080
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "regex",
+      content: "FLAG\\{[a-f0-9]{32}\\}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - web security
+  - xss
+  - client-side attacks
+  - session hijacking
+
+tags:
+  - web
+  - xss
+  - intermediate
+
+files: []
+
+hints:
+  - "The website reflects user input"
+  - "Try injecting script tags"
+  - content: "Cookies often contain session tokens"
+    cost: 15
+
+requirements:
+  - "SQL Injection Spaghetti"
+
+next: "API Authentication Bypass"
+
+state: visible
+version: "0.1"

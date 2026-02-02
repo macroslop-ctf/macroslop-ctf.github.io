@@ -1,0 +1,50 @@
+# Macroslop CTF - SQL Injection Spaghetti Challenge
+
+name: "SQL Injection Spaghetti"
+author: "Macroslop Team"
+category: web
+description: This login form is a mess. Can you bypass it?
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 75
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{sql_1nj3ction_ftw}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - sql injection
+  - web security
+  - authentication bypass
+
+tags:
+  - web
+  - injection
+  - beginner
+
+files: []
+
+hints:
+  - "Try using OR statements in the login field"
+  - "What if you comment out the password check?"
+  - content: "Single quotes are your friend"
+    cost: 10
+
+requirements: []
+next: null
+
+state: visible
+version: "0.1"

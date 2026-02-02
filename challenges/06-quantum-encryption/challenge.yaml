@@ -1,0 +1,55 @@
+# Macroslop CTF - Quantum Encryption Challenge
+
+name: "Quantum Encryption"
+author: "Macroslop Team"
+category: crypto
+description: Can you break this 'unbreakable' encryption? (It's not really quantum)
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 250
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 10
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{n0t_r34lly_qu4ntum}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - cryptography
+  - weak encryption
+  - key recovery
+
+tags:
+  - crypto
+  - advanced
+  - encryption
+
+files:
+  - encrypted.bin
+  - private_key_partial.txt
+
+hints:
+  - "The encryption method might be weaker than advertised"
+  - content: "Try analyzing the key size"
+    cost: 20
+  - content: "XOR is not secure encryption"
+    cost: 25
+
+requirements:
+  - "Caesar's Lost Shift"
+
+next: null
+
+state: visible
+version: "0.1"

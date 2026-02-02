@@ -1,0 +1,53 @@
+# Macroslop CTF - Memory Dump Mystery Challenge
+
+name: "Memory Dump Mystery"
+author: "Macroslop Team"
+category: forensics
+description: Extract the flag from this suspicious memory dump file.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 150
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{m3m0ry_1s_imp0rtant}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - memory forensics
+  - volatility
+  - string extraction
+
+tags:
+  - forensics
+  - memory
+  - intermediate
+
+files:
+  - memory.dump
+
+hints:
+  - "Have you tried using the strings command?"
+  - "Volatility is a powerful forensics tool"
+  - content: "Look for FLAG patterns in the binary data"
+    cost: 15
+
+requirements:
+  - "Secret Macro"
+
+next: "PNG Steganography"
+
+state: visible
+version: "0.1"

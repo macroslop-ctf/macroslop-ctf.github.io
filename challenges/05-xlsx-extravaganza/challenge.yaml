@@ -1,0 +1,51 @@
+# Macroslop CTF - XLSX Extravaganza Challenge
+
+name: "XLSX Extravaganza"
+author: "Macroslop Team"
+category: misc
+description: This Excel file is hiding something. Unzip it and find the secret.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 125
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{x1sx_1s_just_z1p}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - file format analysis
+  - compression
+  - metadata extraction
+
+tags:
+  - misc
+  - file-format
+  - intermediate
+
+files:
+  - secret.xlsx
+
+hints:
+  - "XLSX files are actually ZIP archives"
+  - "Try extracting the file contents"
+  - content: "Look in the XML files within the archive"
+    cost: 10
+
+requirements: []
+next: null
+
+state: visible
+version: "0.1"

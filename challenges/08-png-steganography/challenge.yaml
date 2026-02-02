@@ -1,0 +1,53 @@
+# Macroslop CTF - PNG Steganography Challenge
+
+name: "PNG Steganography"
+author: "Macroslop Team"
+category: forensics
+description: The flag is hidden inside this innocent-looking image.
+attribution: Written by [Macroslop Team](https://macroslop-ctf.github.io)
+value: 175
+type: standard
+
+image: null
+protocol: null
+host: null
+
+connection_info: null
+healthcheck: null
+
+attempts: 5
+logic: any
+
+flags:
+  - {
+      type: "static",
+      content: "FLAG{st3g4nogr4phy_1s_fun}",
+      data: "case_insensitive",
+    }
+
+topics:
+  - steganography
+  - image analysis
+  - least significant bit
+
+tags:
+  - forensics
+  - steganography
+  - intermediate
+
+files:
+  - innocent.png
+
+hints:
+  - "The least significant bits might matter"
+  - "Try using steghide or similar tools"
+  - content: "PNG files can hide data in multiple ways"
+    cost: 20
+
+requirements:
+  - "Memory Dump Mystery"
+
+next: null
+
+state: visible
+version: "0.1"
