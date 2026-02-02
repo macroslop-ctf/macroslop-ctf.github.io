@@ -15,9 +15,8 @@ This writeup is extensive because the conspiracy is vast, interconnected, and la
 5. [Advanced Techniques](#advanced-techniques)
 6. [The Hidden Layers](#the-hidden-layers)
 7. [Lore and Context](#lore-and-context)
-8. [Video Walkthrough](#video-walkthrough)
-9. [Frequently Asked Questions](#frequently-asked-questions)
-10. [Epilogue and Aftermath](#epilogue-and-aftermath)
+8. [Frequently Asked Questions](#frequently-asked-questions)
+9. [Epilogue and Aftermath](#epilogue-and-aftermath)
 
 ---
 
@@ -339,34 +338,6 @@ The challenges hint at several key figures:
 - **The Adversary** - Who exploited each vulnerability?
 - **The Investigator** - Who is trying to solve the conspiracy?
 - **The Reader** - That's you.
-
----
-
-## Video Walkthrough
-
-For a complete visual explanation of the solution methodology, see the comprehensive video walkthrough:
-
-**YouTube Link:** `https://www.youtube.com/watch?v=yoGzj6VV90c`
-
-**Video Chapters:**
-- 0:00 - Introduction and Challenge Overview
-- 3:45 - Collecting Previous Flags (Automated Script)
-- 12:30 - Phase 1 Analysis: Character Extraction
-- 18:15 - Phase 2 Analysis: Numerical Patterns
-- 25:40 - The Base64 Decoding Step-by-Step
-- 35:20 - Constructing the Master Password
-- 42:15 - AES Decryption and Final Flag Extraction
-- 51:30 - Understanding the Conspiracy Narrative
-- 58:45 - Hidden Messages and Easter Eggs Revealed
-- 1:05:10 - Lessons Learned and Defense Strategies
-- 1:12:30 - Q&A from Previous Attempts
-
-The video includes:
-- Live walkthroughs of the decryption process
-- Detailed explanation of cryptographic concepts
-- A complete Python script to automate the solution
-- Commentary on the fictional narrative
-- Glimpses of the secret archive contents
 
 ---
 
