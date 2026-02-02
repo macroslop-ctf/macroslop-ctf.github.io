@@ -21,7 +21,7 @@ logic: any
 flags:
   - {
       type: "static",
-      content: "FLAG{x1sx_1s_just_z1p}",
+      content: "MCTF{x1sx_1s_just_z1p}",
       data: "case_insensitive",
     }
 

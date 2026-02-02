@@ -19,7 +19,7 @@ attempts: 5
 logic: any
 
 flags:
-  - { type: "static", content: "FLAG{m4cr0_h1dd3n}", data: "case_insensitive" }
+  - { type: "static", content: "MCTF{m4cr0_h1dd3n}", data: "case_insensitive" }
 
 topics:
   - code review

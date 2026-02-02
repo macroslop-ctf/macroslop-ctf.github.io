@@ -21,7 +21,7 @@ logic: any
 flags:
   - {
       type: "static",
-      content: "FLAG{sql_1nj3ction_ftw}",
+      content: "MCTF{sql_1nj3ction_ftw}",
       data: "case_insensitive",
     }
 
