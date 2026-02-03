@@ -12,32 +12,33 @@
         }
 
         body {
-            font-family: 'Comic Sans MS', 'Courier New', monospace;
-            background: linear-gradient(135deg, #ffe0f0 0%, #ffc0e0 100%);
-            color: #ff1493;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+            color: #e0e0e0;
             min-height: 100vh;
         }
 
         header {
-            background: rgba(255, 192, 203, 0.3);
+            background: rgba(20, 20, 40, 0.95);
             padding: 20px 40px;
-            border-bottom: 3px solid #ff69b4;
+            border-bottom: 2px solid #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.6s ease-out;
         }
 
         .logo {
             font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ff69b4;
-            letter-spacing: 2px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 3px;
             cursor: pointer;
         }
 
         .logo::before {
-            content: "🎀 ";
+            content: "";
         }
 
         nav {
@@ -46,20 +47,22 @@
         }
 
         nav a {
-            color: #ff1493;
+            color: #b0b0b0;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             padding: 10px 15px;
             border: 2px solid transparent;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover,
         nav a.active {
-            border: 2px solid #ff69b4;
-            text-shadow: 0 0 10px #ff69b4;
-            transform: scale(1.1);
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            transform: translateY(-3px);
         }
 
         main {
@@ -70,18 +73,20 @@
 
         .page-title {
             text-align: center;
-            font-size: 42px;
+            font-size: 48px;
             margin-bottom: 40px;
-            text-shadow: 0 0 20px #ff69b4;
-            animation: fadeIn 1s ease-in;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 3px;
+            animation: slideInDown 0.8s ease-out;
         }
         
         .page-title::before {
-            content: "🎀 ";
+            content: "";
         }
         
         .page-title::after {
-            content: " 🎀";
+            content: "";
         }
 
         .profile-container {
@@ -89,62 +94,72 @@
             grid-template-columns: 1fr 2fr;
             gap: 30px;
             margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
         .profile-header {
-            background: rgba(255, 192, 203, 0.2);
-            border: 2px solid #ff69b4;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .profile-avatar {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #ff69b4 0%, #ffb6d9 100%);
-            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 12px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 60px;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
-            border: 3px solid #ff69b4;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+            border: 2px solid #ffffff;
+            animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .profile-username {
             font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #ff69b4;
-            color: #ff1493;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+            animation: slideInDown 0.8s ease-out 0.3s backwards;
         }
 
         .profile-rank {
-            background: #ff69b4;
-            color: #fff;
+            background: #ffffff;
+            color: #0a0e27;
             display: inline-block;
             padding: 8px 16px;
-            border-radius: 15px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 700;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            animation: slideInDown 0.8s ease-out 0.4s backwards;
         }
 
         .profile-bio {
-            color: #ff1493;
+            color: #b0b0b0;
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
         .profile-stats {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #ff0000;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         .stats-grid {
@@ -155,43 +170,52 @@
         }
 
         .stat-box {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid #ff0000;
-            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ffffff;
+            border-radius: 8px;
             padding: 20px;
             text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         }
 
         .stat-value {
             font-size: 32px;
-            font-weight: bold;
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000;
+            font-weight: 700;
+            color: #ffffff;
             margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: 12px;
-            color: #cc0000;
+            font-size: 11px;
+            color: #808080;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #ff69b4;
-            padding-bottom: 10px;
-            text-shadow: 0 0 10px #ff69b4;
-            color: #ff1493;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .solved-challenges {
-            background: rgba(255, 192, 203, 0.2);
-            border: 2px solid #ff69b4;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
             margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
 
         .challenge-list {
@@ -199,36 +223,39 @@
         }
 
         .challenge-item {
-            background: rgba(255, 105, 180, 0.1);
-            border-left: 3px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #ffffff;
             padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            transition: all 0.3s;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .challenge-item:hover {
-            background: rgba(255, 105, 180, 0.2);
-            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
         }
 
         .challenge-name {
-            font-weight: bold;
-            color: #ff69b4;
+            font-weight: 700;
+            color: #ffffff;
             margin-bottom: 5px;
         }
 
         .challenge-time {
             font-size: 12px;
-            color: #ff1493;
+            color: #808080;
         }
 
         .achievements {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #ff0000;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
         .achievement-grid {
@@ -238,36 +265,48 @@
         }
 
         .achievement-badge {
-            background: rgba(255, 0, 0, 0.1);
-            border: 2px solid #ff0000;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ffffff;
+            border-radius: 8px;
             padding: 15px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .achievement-badge:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.05);
         }
 
         .badge-icon {
             font-size: 32px;
             margin-bottom: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-badge:hover .badge-icon {
+            transform: scale(1.2) rotate(10deg);
         }
 
         .badge-name {
             font-size: 11px;
-            color: #ff0000;
-            font-weight: bold;
+            color: #b0b0b0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -275,12 +314,57 @@
             }
         }
 
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            from {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         footer {
             text-align: center;
             padding: 20px;
-            border-top: 2px solid #ff69b4;
+            border-top: 2px solid #ffffff;
             margin-top: 60px;
-            color: #ff1493;
+            color: #b0b0b0;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -292,7 +376,7 @@
 </head>
 <body>
     <header>
-        <div class="logo" onclick="window.location.href='./'">⚙️ Macroslop CTF ⚙️</div>
+        <div class="logo" onclick="window.location.href='./'">MACROSLOP CTF</div>
         <nav>
             <a href="./">Home</a>
             <a href="challenges.html">Challenges</a>
@@ -301,7 +385,7 @@
     </header>
 
     <main>
-        <h1 class="page-title">👤 USER PROFILE 👤</h1>
+        <h1 class="page-title">USER PROFILE</h1>
 
         <div class="profile-container">
             <div class="profile-header">
@@ -335,8 +419,8 @@
                     </div>
                 </div>
                 <div class="section-title">ℹ️ INFO</div>
-                <div style="font-size: 14px; color: #ff1493; line-height: 1.8;">
-                    <p><strong>Joined:</strong> January 15, 2024</p>
+                <div style="font-size: 14px; color: #b0b0b0; line-height: 1.8;">
+                    <p><strong>Joined:</strong> February 15, 2026</p>
                     <p><strong>Last Active:</strong> Today at 2:30 AM</p>
                     <p><strong>Country:</strong> 🇺🇸 United States</p>
                     <p><strong>Favorite Category:</strong> Crypto</p>
@@ -349,35 +433,35 @@
             <ul class="challenge-list">
                 <li class="challenge-item">
                     <div class="challenge-name">Secret Macro</div>
-                    <div class="challenge-time">Solved on Jan 16, 2024 at 03:45 AM</div>
+                    <div class="challenge-time">Solved on Jan 16, 2026 at 03:45 AM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">SQL Injection Spaghetti</div>
-                    <div class="challenge-time">Solved on Jan 18, 2024 at 11:22 PM</div>
+                    <div class="challenge-time">Solved on Jan 18, 2026 at 11:22 PM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">Caesar's Lost Shift</div>
-                    <div class="challenge-time">Solved on Jan 19, 2024 at 02:15 AM</div>
+                    <div class="challenge-time">Solved on Jan 19, 2026 at 02:15 AM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">XLSX Extravaganza</div>
-                    <div class="challenge-time">Solved on Jan 22, 2024 at 09:47 PM</div>
+                    <div class="challenge-time">Solved on Jan 22, 2026 at 09:47 PM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">XSS Paradise</div>
-                    <div class="challenge-time">Solved on Jan 25, 2024 at 04:20 AM</div>
+                    <div class="challenge-time">Solved on Jan 25, 2026 at 04:20 AM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">PNG Steganography</div>
-                    <div class="challenge-time">Solved on Jan 28, 2024 at 08:33 PM</div>
+                    <div class="challenge-time">Solved on Jan 28, 2026 at 08:33 PM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">Memory Dump Mystery</div>
-                    <div class="challenge-time">Solved on Feb 01, 2024 at 01:12 AM</div>
+                    <div class="challenge-time">Solved on Feb 01, 2026 at 01:12 AM</div>
                 </li>
                 <li class="challenge-item">
                     <div class="challenge-name">API Authentication Bypass</div>
-                    <div class="challenge-time">Solved on Feb 02, 2024 at 06:58 PM</div>
+                    <div class="challenge-time">Solved on Feb 02, 2026 at 06:58 PM</div>
                 </li>
             </ul>
         </div>
@@ -418,7 +502,7 @@
     </main>
 
     <footer>
-        <p>© 2024 Macroslop CTF | Enjoy the chaos | Stay legal</p>
+        <p>© 2026 Macroslop CTF | Enjoy the chaos | Stay legal</p>
     </footer>
 </body>
 </html>

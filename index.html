@@ -12,31 +12,28 @@
         }
 
         body {
-            font-family: 'Comic Sans MS', 'Courier New', monospace;
-            background: linear-gradient(135deg, #ffe0f0 0%, #ffc0e0 100%);
-            color: #ff1493;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+            color: #e0e0e0;
             min-height: 100vh;
         }
 
         header {
-            background: rgba(255, 192, 203, 0.3);
+            background: rgba(20, 20, 40, 0.95);
             padding: 20px 40px;
-            border-bottom: 3px solid #ff69b4;
+            border-bottom: 2px solid #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.6s ease-out;
         }
 
         .logo {
             font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ff69b4;
-            letter-spacing: 2px;
-        }
-
-        .logo::before {
-            content: "🎀 ";
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 3px;
         }
 
         nav {
@@ -45,19 +42,21 @@
         }
 
         nav a {
-            color: #ff1493;
+            color: #b0b0b0;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             padding: 10px 15px;
             border: 2px solid transparent;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
-            border: 2px solid #ff69b4;
-            text-shadow: 0 0 10px #ff69b4;
-            transform: scale(1.1);
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            transform: translateY(-3px);
         }
 
         main {
@@ -69,37 +68,43 @@
         .hero {
             text-align: center;
             margin-bottom: 60px;
-            animation: fadeIn 1s ease-in;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px #ff69b4;
-            letter-spacing: 3px;
+            color: #ffffff;
+            letter-spacing: 4px;
+            font-weight: 700;
+            animation: slideInDown 0.8s ease-out;
         }
 
         .hero p {
             font-size: 18px;
-            color: #ff1493;
+            color: #b0b0b0;
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         .rules-container {
-            background: rgba(255, 192, 203, 0.2);
-            border: 2px solid #ff69b4;
-            border-radius: 15px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            backdrop-filter: blur(10px);
         }
 
         .rules-container h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px #ff69b4;
-            border-bottom: 2px solid #ff69b4;
-            padding-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 15px;
+            font-weight: 700;
         }
 
         .rules-list {
@@ -107,61 +112,85 @@
         }
 
         .rules-list li {
-            padding: 10px 0;
+            padding: 15px 0;
             font-size: 16px;
-            border-left: 3px solid #ff69b4;
-            padding-left: 15px;
+            border-left: 3px solid #ffffff;
+            padding-left: 20px;
             margin-bottom: 10px;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            color: #b0b0b0;
+            animation: slideInRight 0.6s ease-out backwards;
         }
+
+        .rules-list li:nth-child(1) { animation-delay: 0.5s; }
+        .rules-list li:nth-child(2) { animation-delay: 0.55s; }
+        .rules-list li:nth-child(3) { animation-delay: 0.6s; }
+        .rules-list li:nth-child(4) { animation-delay: 0.65s; }
+        .rules-list li:nth-child(5) { animation-delay: 0.7s; }
+        .rules-list li:nth-child(6) { animation-delay: 0.75s; }
+        .rules-list li:nth-child(7) { animation-delay: 0.8s; }
+        .rules-list li:nth-child(8) { animation-delay: 0.85s; }
 
         .rules-list li:hover {
             transform: translateX(10px);
-            text-shadow: 0 0 10px #ff69b4;
+            color: #ffffff;
+            border-left-color: #ffffff;
         }
 
         .fancy-text {
-            background: rgba(255, 192, 203, 0.2);
-            border: 2px dashed #ff69b4;
-            border-radius: 15px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid #ffffff;
+            border-radius: 12px;
+            padding: 40px;
             margin-bottom: 40px;
             text-align: center;
-            font-style: italic;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            backdrop-filter: blur(10px);
         }
 
         .fancy-text p {
             font-size: 16px;
             line-height: 1.8;
             margin-bottom: 15px;
+            color: #b0b0b0;
         }
 
         .cta-button {
             display: inline-block;
-            background: #ff69b4;
-            color: #fff;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: bold;
+            background: #ffffff;
+            color: #0a0e27;
+            padding: 14px 40px;
+            font-size: 14px;
+            font-weight: 700;
             border: none;
-            border-radius: 25px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
             margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
         }
 
         .cta-button:hover {
-            background: #ff1493;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            background: #0a0e27;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.25);
         }
 
         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -169,9 +198,46 @@
             }
         }
 
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .glitch {
             position: relative;
             display: inline-block;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .glitch::before,
@@ -181,43 +247,56 @@
             left: 0;
             top: 0;
             width: 100%;
-            height: 100%;;
+            height: 100%;
+            opacity: 0;
         }
 
         .glitch::before {
-            animation: glitch-1 0.3s infinite;
-            color: #ff00ff;
+            animation: glitch-shimmer 2s ease-in-out infinite;
+            color: #ffffff;
             z-index: -1;
         }
 
         .glitch::after {
-            animation: glitch-2 0.3s infinite;
-            color: #00ffff;
+            animation: glitch-shimmer 2s ease-in-out infinite 0.1s;
+            color: #ffffff;
             z-index: -2;
         }
 
-        @keyframes glitch-1 {
-            0% { clip-path: rect(0, 900px, 0, 0); }
-            100% { clip-path: rect(0, 0, 900px, 0); }
+        @keyframes glitch-shimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.3; }
         }
 
-        @keyframes glitch-2 {
-            0% { clip-path: rect(0, 0, 900px, 900px); }
-            100% { clip-path: rect(0, 900px, 0, 900px); }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            border-top: 2px solid #ff69b4;
+            border-top: 2px solid #ffffff;
             margin-top: 60px;
-            color: #ff1493;
+            color: #b0b0b0;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">⚙️ Macroslop CTF ⚙️</div>
+        <div class="logo">MACROSLOP CTF</div>
         <nav>
             <a href="challenges">Challenges</a>
             <a href="profile">Profile</a>
@@ -236,34 +315,34 @@
         <div class="rules-container">
             <h2>RULES & GUIDELINES</h2>
             <ul class="rules-list">
-                <li>🚫 No attacking the infrastructure (we're fragile)</li>
-                <li>🧠 Use your brain, not AI (okay maybe a little AI)</li>
-                <li>🤐 Don't share flags in public chat (seriously, don't)</li>
-                <li>⏰ Respect the time limits, cheaters will be laughed at</li>
-                <li>📝 Write-ups are encouraged (flex your knowledge)</li>
-                <li>🔧 Report bugs to admins (we probably already know)</li>
-                <li>😤 No rage quitting (okay fine, a little rage quitting)</li>
-                <li>🎮 Have fun or get out (just kidding, stay)</li>
+                <li>No attacking the infrastructure (we're fragile)</li>
+                <li>Use your brain, not AI (okay maybe a little AI)</li>
+                <li>Don't share flags in public chat (seriously, don't)</li>
+                <li>Respect the time limits, cheaters will be laughed at</li>
+                <li>Write-ups are encouraged (flex your knowledge)</li>
+                <li>Report bugs to admins (we probably already know)</li>
+                <li>No rage quitting (okay fine, a little rage quitting)</li>
+                <li>Have fun or get out (just kidding, stay)</li>
             </ul>
         </div>
 
         <div class="fancy-text">
             <p>
-                ✨ Welcome to the digital battleground where macros collide and CTF dreams come true ✨
+                Welcome to the digital battleground where macros collide and CTF dreams come true
             </p>
             <p>
                 Dust off your hacking skills, sharpen your tools, and prepare yourself for challenges
                 that will make you question your life choices. But hey, at least the prizes are... something.
             </p>
-            <p style="font-size: 14px; color: #ff69b4;">
+            <p style="font-size: 14px; color: #808080;">
                 "I didn't choose the CTF life, the CTF life chose me." — Probably you soon
             </p>
-            <a href="challenges" class="cta-button">START HACKING</a>
+            <a href="challenges" class="cta-button">Start Hacking</a>
         </div>
     </main>
 
     <footer>
-        <p>© 2024 Macroslop CTF | Enjoy the chaos | Stay legal</p>
+        <p>© 2026 Macroslop CTF | Enjoy the chaos | Stay legal</p>
     </footer>
 </body>
 </html>
