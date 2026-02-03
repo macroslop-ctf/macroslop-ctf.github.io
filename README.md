@@ -1,12 +1,12 @@
-# Macroslop CTF 🎀
+# Macroslop CTF
 
-A cute and fun Capture The Flag (CTF) competition website with adorable Hello Kitty-inspired theming!
+A professional Capture The Flag (CTF) competition website with a sleek black and white corporate design and extensive animations.
 
 ## 🌟 Features
 
 - **11 Exciting Challenges** - From easy to super hard difficulty levels
 - **Multiple Categories** - Web, Crypto, Forensics, and Miscellaneous challenges
-- **Beautiful UI** - Pink, cute, and user-friendly interface
+- **Beautiful UI** - Sleek black and white corporate design with smooth animations
 - **Responsive Design** - Works great on desktop and mobile devices
 - **User Profiles** - Track your progress and achievements
 - **Challenge System** - Flag submission and instant feedback
@@ -87,9 +87,9 @@ cd macroslop-ctf.github.io
 - **Hard** - Advanced challenges (175-250 points)
 - **Super Hard** - The ultimate challenge (9999 points)
 
-## 🎀 Design Theme
+## � Design Theme
 
-This CTF features a cute pink and Hello Kitty-inspired design to make competitive hacking more fun and approachable!
+This CTF features a professional black and white corporate aesthetic with extensive CSS animations, glassmorphism effects, and smooth transitions to create a modern and polished user experience.
 
 ## 📝 Write-ups
 
@@ -108,7 +108,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 **Status**: Active Development  
-**Last Updated**: February 2, 2026  
+**Last Updated**: February 3, 2026  
 **Total Challenges**: 11  
 **Difficulty Range**: Easy → Super Hard  
 
